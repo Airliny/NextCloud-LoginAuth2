@@ -21,7 +21,7 @@ class Application extends App implements IBootstrap {
 	public const APP_ID = 'user_airliny';
 
 	public function __construct(?string $appName = null) {
-		parent::__construct(self::APP_ID, $appName ?? self::APP_ID);
+		parent::__construct($appName ?? self::APP_ID);
 	}
 
 	public function register(IRegistrationContext $context): void {
