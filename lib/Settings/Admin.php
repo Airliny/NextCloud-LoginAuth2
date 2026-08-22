@@ -58,6 +58,9 @@ class Admin implements ISettings {
 			'callbackUrl' => $this->urlGenerator->getAbsoluteURL(
 				$this->urlGenerator->linkToRoute(Application::APP_ID . '.login.callback')
 			),
+			// NC34 已移除模板内 linkToRoute() 遗留函数，URL 统一由服务端生成后传入
+			'saveUrl' => $this->urlGenerator->linkToRoute(Application::APP_ID . '.settings.save'),
+			'unbindUrl' => $this->urlGenerator->linkToRoute(Application::APP_ID . '.settings.unbind'),
 			'issues' => $this->config->validate(),
 			'bindings' => $bindings,
 			'saved' => $this->request->getParam('saved') === '1',

@@ -41,7 +41,7 @@ style('user_airliny', 'admin');
 	<?php } ?>
 
 	<form method="post"
-		  action="<?php p(linkToRoute('user_airliny.settings.save')); ?>">
+		  action="<?php p($_['saveUrl']); ?>">
 		<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>">
 
 		<div class="field">
@@ -173,7 +173,7 @@ style('user_airliny', 'admin');
 					<td><code><?php p($binding['sub']); ?></code></td>
 					<td><?php p($binding['boundAt']); ?></td>
 					<td>
-						<form method="post" action="<?php p(linkToRoute('user_airliny.settings.unbind')); ?>">
+						<form method="post" action="<?php p($_['unbindUrl']); ?>">
 							<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>">
 							<input type="hidden" name="uid" value="<?php p($binding['uid']); ?>">
 							<button type="submit" class="warning-small">
