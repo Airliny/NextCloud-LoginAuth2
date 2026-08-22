@@ -1,0 +1,5 @@
+build/
+*.tar.gz
+vendor/
+.php-cs-fixer.cache
+.DS_Store

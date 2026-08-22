@@ -1,0 +1,24 @@
+{
+    "name": "airliny/user_airliny",
+    "description": "Airliny 统一认证中心 (OAuth 2.0 + PKCE) SSO 登录集成，仅匹配已有 Nextcloud 账号",
+    "type": "nextcloud-app",
+    "license": "AGPL-3.0-or-later",
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "nextcloud/coding-standard": "^1.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "classmap-authoritative": true,
+        "platform": {
+            "php": "8.1"
+        }
+    },
+    "scripts": {
+        "lint": "find . -name '*.php' -not -path './vendor/*' -exec php -l {} \\;",
+        "cs:check": "php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "php-cs-fixer fix"
+    }
+}

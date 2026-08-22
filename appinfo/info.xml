@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>user_airliny</id>
+    <name>Airliny SSO 登录 (Airliny SSO Login)</name>
+    <summary>通过 Airliny 统一认证中心（OAuth 2.0 授权码 + PKCE）登录已有的 Nextcloud 账号。</summary>
+    <description><![CDATA[
+## Airliny SSO 登录
+
+将你的 Nextcloud 与 Airliny 统一认证中心（https://account.airliny.com）对接：
+
+* 标准 OAuth 2.0 授权码模式，强制 PKCE (S256) 与 state 防 CSRF
+* 登录页一键「使用统一认证中心登录」，可选自动跳转
+* 仅匹配**已存在**的 Nextcloud 账号（按邮箱 / 用户名），不自动建号（无 JIT）
+* 身份绑定校验：SSO 身份 (sub) 与本地账号一经绑定即锁定，防止账号被顶替
+* Client Secret 使用实例密钥加密存储
+* 管理面板：配置、诊断提示、查看与解除账号绑定
+
+适用于 Nextcloud 31 – 34。
+]]></description>
+    <version>1.0.0</version>
+    <licence>agpl</licence>
+    <author homepage="https://account.airliny.com">Airliny</author>
+    <namespace>UserAirliny</namespace>
+    <types>
+        <authentication/>
+    </types>
+    <documentation>
+        <admin>https://account.airliny.com/developer/docs</admin>
+    </documentation>
+    <category>integration</category>
+    <category>security</category>
+    <website>https://github.com/Airliny/NextCloud-LoginAuth2</website>
+    <bugs>https://github.com/Airliny/NextCloud-LoginAuth2/issues</bugs>
+    <dependencies>
+        <database>sqlite</database>
+        <database>mysql</database>
+        <database>pgsql</database>
+        <nextcloud min-version="31" max-version="34"/>
+    </dependencies>
+    <settings>
+        <admin>OCA\UserAirliny\Settings\Admin</admin>
+        <admin-section>OCA\UserAirliny\Settings\AdminSection</admin-section>
+    </settings>
+</info>

@@ -1,0 +1,104 @@
+/* SPDX-FileCopyrightText: 2026 Airliny
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ *
+ * 登录页 SSO 按钮 */
+
+.airliny-sso-wrapper {
+	margin: 12px 0 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.airliny-sso-divider {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 14px 0 10px;
+	color: var(--color-text-maxcontrast);
+	font-size: 12px;
+	user-select: none;
+}
+
+.airliny-sso-divider::before,
+.airliny-sso-divider::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: var(--color-border);
+}
+
+.airliny-sso-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: 100%;
+	padding: 10px 14px;
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-large, 8px);
+	background: var(--color-main-background);
+	color: var(--color-main-text);
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: border-color .15s ease, background .15s ease, transform .1s ease;
+}
+
+.airliny-sso-button:hover {
+	border-color: var(--color-primary-element);
+	background: var(--color-primary-element-light, rgba(0, 0, 0, .03));
+}
+
+.airliny-sso-button:active {
+	transform: scale(.99);
+}
+
+.airliny-sso-button svg {
+	flex-shrink: 0;
+}
+
+/* 错误页 */
+.airliny-error-wrap {
+	min-height: 70vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+}
+
+.airliny-error-card {
+	max-width: 460px;
+	width: 100%;
+	background: var(--color-main-background);
+	border: 1px solid var(--color-border);
+	border-radius: var(--border-radius-large, 12px);
+	padding: 32px 28px;
+	text-align: center;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, .06);
+}
+
+.airliny-error-icon {
+	font-size: 40px;
+	margin-bottom: 8px;
+}
+
+.airliny-error-card h1 {
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0 0 12px;
+}
+
+.airliny-error-detail {
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--color-text-maxcontrast);
+	margin-bottom: 20px;
+	text-align: left;
+	word-break: break-word;
+}
+
+.airliny-error-back {
+	display: inline-block;
+}
