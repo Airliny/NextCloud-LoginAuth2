@@ -91,9 +91,9 @@ class LoginCompleter {
 		// 4. SSO 无密码可确认：将「最近密码确认」前移，避免敏感操作反复要求输密码
 		$this->session->set('last-password-confirm', time() + 4 * 365 * 24 * 3600);
 
-		// 5. 成功后清空该来源的暴力破解计数
+		// 5. 成功后清空该来源的暴力破解计数（NC34 签名：resetDelay(ip, action, metadata)）
 		try {
-			$this->throttler->resetDelay($this->request, self::BRUTEFORCE_ACTION);
+			$this->throttler->resetDelay($this->request->getRemoteAddress(), self::BRUTEFORCE_ACTION, []);
 		} catch (\Throwable $e) {
 			// 忽略：清零失败不影响登录
 		}
