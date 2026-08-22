@@ -61,4 +61,12 @@ class Version1000Date20260201000000 implements IMigrationStep {
 		}
 		return null;
 	}
+
+	public function preSchemaChange(IOutput $output, Closure $schemaClosure, array $options): void {
+		// 无需数据迁移
+	}
+
+	public function postSchemaChange(IOutput $output, Closure $schemaClosure, array $options): void {
+		// 无需数据回填
+	}
 }
