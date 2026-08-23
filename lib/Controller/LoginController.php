@@ -172,7 +172,6 @@ class LoginController extends Controller {
 		}
 
 		$sub = (string)$userInfo['sub'];
-		$username = trim((string)($userInfo['username'] ?? ''));
 
 		// 4. 仅匹配已有账号（无 JIT）
 		try {
@@ -195,17 +194,9 @@ class LoginController extends Controller {
 
 		if ($user === null) {
 			$this->loginCompleter->registerFailedAttempt();
-			$detail = $this->l10n->t('未找到与此身份对应的 Nextcloud 账号。请让管理员先创建账号：') . "\n"
-				. $this->l10n->t('· 用户名：%s', [$username !== '' ? $username : '—']) . "\n";
-			$email = trim((string)($userInfo['email'] ?? ''));
-			if ($email !== '') {
-				$detail .= $this->l10n->t('· 邮箱：%s', [$email]);
-			} else {
-				$detail .= $this->l10n->t('· 邮箱：（未授权获取，请在认证中心授予 email 权限后重试）');
-			}
 			return $this->errorPage(
-				$this->l10n->t('没有匹配的 Nextcloud 账号'),
-				$detail,
+				$this->l10n->t('该账号尚未注册 ALN Cloud'),
+				$this->l10n->t('此统一认证中心账号还没有对应本站账号。为保障安全，ALN Cloud 不支持自动注册，请先联系管理员创建账号（用户名或邮箱与认证中心一致）后再登录。'),
 				404
 			);
 		}
