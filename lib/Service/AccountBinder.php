@@ -77,7 +77,9 @@ class AccountBinder {
 				$binding = new Binding();
 				$binding->setUid($uid);
 				$binding->setSub($sub);
-				$binding->setBoundAt(new \DateTimeImmutable('@' . time()));
+				// 注意：Entity 的 datetime 类型 setter 只接受字符串（内部自行构造 DateTime），
+				// 直接传 DateTime/DateTimeImmutable 对象会抛 TypeError
+				$binding->setBoundAt(date('Y-m-d H:i:s'));
 				$this->bindingMapper->insert($binding);
 				$this->logger->info('[user_airliny] 已建立 SSO 身份绑定', [
 					'uid' => $uid,
