@@ -11,7 +11,7 @@ style('user_airliny', 'admin');
 
 <div id="user-airliny-admin" class="section">
 	<h2 data-anchor-name="user-airliny">
-		🔐 <?php p($l->t('Airliny SSO 登录')); ?>
+		<?php p($l->t('Airliny SSO 登录')); ?>
 	</h2>
 	<p class="settings-hint">
 		<?php p($l->t('通过 Airliny 统一认证中心（OAuth 2.0 授权码 + PKCE）登录已有的 Nextcloud 账号。本应用不会自动创建账号。')); ?>

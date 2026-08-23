@@ -36,15 +36,18 @@
 		link.href = cfg.loginUrl + (cfg.loginUrl.indexOf('?') === -1 ? '?' : '&') +
 			'redirect_url=' + encodeURIComponent(redirectUrl)
 
-		var shield = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-		shield.setAttribute('width', '18')
-		shield.setAttribute('height', '18')
-		shield.setAttribute('viewBox', '0 0 24 24')
-		shield.setAttribute('fill', 'none')
-		shield.innerHTML = '<path d="M12 2L4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3z" fill="currentColor" opacity=".85"/>'
-		shield.innerHTML += '<path d="M10.6 14.6l-2.2-2.2 1-1 1.2 1.2 3.6-3.6 1 1-4.6 4.6z" fill="#fff" opacity=".95"/>'
+		var icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+		icon.setAttribute('width', '18')
+		icon.setAttribute('height', '18')
+		icon.setAttribute('viewBox', '0 0 32 32')
+		icon.innerHTML = '<g fill="none" stroke="currentColor" stroke-width="3" '
+			+ 'stroke-linecap="round">'
+			+ '<circle cx="9.5" cy="16" r="5"/>'
+			+ '<path d="M14.8 16H27"/>'
+			+ '<path d="M22 16v4.5"/>'
+			+ '<path d="M27 16v6"/></g>'
 
-		link.appendChild(shield)
+		link.appendChild(icon)
 		link.appendChild(document.createTextNode(cfg.label || 'SSO'))
 		return link
 	}
