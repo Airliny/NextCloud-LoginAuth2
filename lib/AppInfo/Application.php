@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace OCA\UserAirliny\AppInfo;
 
+use OCA\UserAirliny\AlternativeLogin\SsoLogin;
 use OCA\UserAirliny\Listener\LoginPageListener;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
@@ -25,7 +26,9 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
-		// 在登录页渲染前注入「使用统一认证中心登录」按钮所需的脚本 / 配置
+		// 登录页原生「替代登录方式」按钮（官方机制，NcButton 渲染）
+		$context->registerAlternativeLogin(SsoLogin::class);
+		// 自动跳转 / 隐藏本地密码表单等登录页行为
 		$context->registerEventListener(BeforeLoginTemplateRenderedEvent::class, LoginPageListener::class);
 	}
 

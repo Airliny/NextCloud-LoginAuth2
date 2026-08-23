@@ -1,63 +1,8 @@
 /* SPDX-FileCopyrightText: 2026 Airliny
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
- * 登录页 SSO 按钮 */
-
-.airliny-sso-wrapper {
-	margin: 12px 0 0;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-}
-
-.airliny-sso-divider {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	margin: 14px 0 10px;
-	color: var(--color-text-maxcontrast);
-	font-size: 12px;
-	user-select: none;
-}
-
-.airliny-sso-divider::before,
-.airliny-sso-divider::after {
-	content: "";
-	flex: 1;
-	height: 1px;
-	background: var(--color-border);
-}
-
-.airliny-sso-button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 8px;
-	width: 100%;
-	padding: 10px 14px;
-	border: 1px solid var(--color-border);
-	border-radius: var(--border-radius-large, 8px);
-	background: var(--color-main-background);
-	color: var(--color-main-text);
-	font-size: 14px;
-	font-weight: 500;
-	cursor: pointer;
-	transition: border-color .15s ease, background .15s ease, transform .1s ease;
-}
-
-.airliny-sso-button:hover {
-	border-color: var(--color-primary-element);
-	background: var(--color-primary-element-light, rgba(0, 0, 0, .03));
-}
-
-.airliny-sso-button:active {
-	transform: scale(.99);
-}
-
-.airliny-sso-button svg {
-	flex-shrink: 0;
-}
+ * 登录按钮由 Nextcloud 原生 alternative-login 机制渲染，无需自定义样式；
+ * 本文件仅保留 SSO 错误页样式。 */
 
 /* 错误页 */
 .airliny-error-wrap {
