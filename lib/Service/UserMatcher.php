@@ -101,7 +101,8 @@ class UserMatcher {
 	 */
 	private function matchByEmail(string $email): ?IUser {
 		$users = $this->userManager->getByEmail($email);
-		$users = array_values(array_filter($users, static fn (IUser $u): bool => $this->isBackendAllowed($u)));
+		// 注意：不能用 static fn —— 闭包内需调用 $this->isBackendAllowed()
+		$users = array_values(array_filter($users, fn (IUser $u): bool => $this->isBackendAllowed($u)));
 
 		if (count($users) > 1) {
 			throw new AmbiguousIdentityException('email:' . $this->maskEmail($email));
